@@ -1,0 +1,91 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "body": "next comment",
+      "id": 2
+    },
+    {
+      "body": "next comment",
+      "id": 3
+    },
+    {
+      "body": "following comment",
+      "id": 4
+    },
+    {
+      "body": "next comment",
+      "id": 5
+    },
+    {
+      "body": "following comment",
+      "id": 6
+    },
+    {
+      "body": "async comment",
+      "id": 7
+    },
+    {
+      "body": "async comment",
+      "id": 8
+    },
+    {
+      "body": "async comment",
+      "id": 9
+    },
+    {
+      "body": "async comment",
+      "id": 10
+    },
+    {
+      "body": "async comment",
+      "id": 11
+    },
+    {
+      "body": "async comment",
+      "id": 12
+    },
+    {
+      "body": "async comment",
+      "id": 13
+    },
+    {
+      "body": "async comment",
+      "id": 14
+    },
+    {
+      "body": "async comment",
+      "id": 15
+    },
+    {
+      "body": "async comment",
+      "id": 16
+    },
+    {
+      "body": "async comment",
+      "id": 17
+    },
+    {
+      "body": "async comment",
+      "id": 18
+    },
+    {
+      "body": "async comment",
+      "id": 19
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
