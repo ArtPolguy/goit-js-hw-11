@@ -5,19 +5,29 @@ export function renderGalleryMarkup(photos) {
     .map(photo => {
       return `
   <div class="photo-card">
-  <img src="${photo.webformatURL}" alt="${photo.tags}" loading="lazy"  width = 400px/>
+  <img
+    src="${photo.webformatURL}"
+    alt="${photo.tags}"
+    loading="lazy"
+    width="400px"
+    class="phoro-card_img"
+  />
   <div class="info">
     <p class="info-item">
-      <b>Likes: ${photo.likes}</b>
+      <b class = "info-item_name">Likes:</b>
+      <span> ${photo.likes} </span>
     </p>
     <p class="info-item">
-      <b>Views: ${photo.views}</b>
+      <b class = "info-item_name">Views:</b>
+      <span>${photo.views}</span>
     </p>
     <p class="info-item">
-      <b>Comments: ${photo.comments}</b>
+      <b class = "info-item_name">Comments:</b>
+      <span> ${photo.comments}</span>
     </p>
     <p class="info-item">
-      <b>Downloads: ${photo.downloads}</b>
+      <b class = "info-item_name">Downloads:</b>
+      <span>${photo.downloads}</span>
     </p>
   </div>
 </div>`;
