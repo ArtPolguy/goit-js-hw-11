@@ -1,6 +1,4 @@
-import './js/fetch-pic';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { getPhoto } from './js/fetch-pic';
 import { renderGalleryMarkup } from './js/render-markup';
 import { refs } from './js/reference';
 import PhotoApiService from './js/photo-api-service';
@@ -18,20 +16,22 @@ async function handleSearchBtnSubmit(e) {
 
   photoApiService.resetPage();
 
-  if (photoApiService.request === '') {
+  const response = await photoApiService.getPhoto();
+  const photosArr = response.hits;
+
+  if (photoApiService.request === '' || !photosArr.length) {
     Notify.info(
       'Sorry, there are no images matching your search query. Please try again.'
     );
     return;
   }
-  const response = await photoApiService.getPhoto();
-  const photosArr = response.hits;
 
   clearRender();
   renderGalleryMarkup(photosArr);
 
   refs.loadMoreBtn.classList.remove('is-hidden');
 }
+
 async function handleLoadMoreBtnClick() {
   const response = await photoApiService.getPhoto();
   const photosArr = response.hits;
