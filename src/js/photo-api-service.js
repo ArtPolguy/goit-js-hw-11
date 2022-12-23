@@ -5,18 +5,19 @@ export default class PhotoApiService {
   constructor() {
     this.userRequest = '';
     this.page = 1;
+    this.perPage = 40;
   }
 
   async getPhoto() {
-    console.log(this);
     const response = await fetch(
-      `${URL}?key=${API_KEY}&q=${this.userRequest}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=40`
+      `${URL}?key=${API_KEY}&q=${this.userRequest}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=${this.perPage}`
     );
     const photos = await response.json();
 
     this.incrementPage();
+    console.log(photos);
 
-    return photos.hits;
+    return photos;
   }
   incrementPage() {
     this.page += 1;

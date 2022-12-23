@@ -25,15 +25,25 @@ async function handleSearchBtnSubmit(e) {
     return;
   }
   const response = await photoApiService.getPhoto();
-
-  refs.loadMoreBtn.classList.remove('is-hidden');
+  const photosArr = response.hits;
 
   clearRender();
-  renderGalleryMarkup(response);
+  renderGalleryMarkup(photosArr);
+
+  refs.loadMoreBtn.classList.remove('is-hidden');
 }
 async function handleLoadMoreBtnClick() {
   const response = await photoApiService.getPhoto();
-  renderGalleryMarkup(response);
+  const photosArr = response.hits;
+  const totalPages = response.totalHits / photoApiService.perPage;
+
+  if (totalPages <= photoApiService.page) {
+    refs.loadMoreBtn.classList.add('is-hidden');
+    Notify.info("We're sorry, but you've reached the end of search results.");
+
+    return;
+  }
+  renderGalleryMarkup(photosArr);
 }
 
 function clearRender() {
